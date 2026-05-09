@@ -1,0 +1,36 @@
+# Build artifacts
+*.o
+*.d
+
+# Bridge binary
+bridge/djmt1-bridge
+
+# Plugin build
+plugin/build/
+
+# Tool binaries
+tools/djmt1-iso-test
+tools/djmt1-latency
+tools/capture.raw
+
+# Installer output
+install/pkg-build/
+install/scripts/
+install/DJMT1AudioDriver.pkg
+
+# IDE settings
+.vscode/
+.idea/
+*.xcuserstate
+xcuserdata/
+DerivedData/
+
+# Certificates / secrets
+*.p12
+*.p8
+*.cer
+
+# macOS
+.DS_Store
+*.swp
+*~

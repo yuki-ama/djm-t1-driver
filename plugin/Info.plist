@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleExecutable</key>
+	<string>DJMT1AudioPlugin</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.ultraxperience.djmt1.audioplug</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>DJMT1AudioPlugin</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+
+	<!-- CFPlugIn registration -->
+	<key>CFPlugInFactories</key>
+	<dict>
+		<!-- Factory UUID -> Factory function name -->
+		<key>3E30D797-C58A-4C6E-B7E4-DA2B53A5B1F1</key>
+		<string>DJMT1AudioPlugin_Create</string>
+	</dict>
+	<key>CFPlugInTypes</key>
+	<dict>
+		<!-- kAudioServerPlugInTypeUUID -> array of factory UUIDs -->
+		<key>443ABAB8-E7B3-491A-B985-BEB9187030DB</key>
+		<array>
+			<string>3E30D797-C58A-4C6E-B7E4-DA2B53A5B1F1</string>
+		</array>
+	</dict>
+</dict>
+</plist>

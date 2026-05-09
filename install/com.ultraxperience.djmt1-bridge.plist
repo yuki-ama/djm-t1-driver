@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.ultraxperience.djmt1-bridge</string>
+
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/local/bin/djmt1-bridge</string>
+	</array>
+
+	<!--
+	  KeepAlive: restart on non-zero exit (device not found / disconnect).
+	  Clean shutdown (SIGTERM) exits 0 and won't restart.
+	-->
+	<key>KeepAlive</key>
+	<dict>
+		<key>SuccessfulExit</key>
+		<false/>
+	</dict>
+
+	<!-- Wait 10 seconds before restarting after exit -->
+	<key>ThrottleInterval</key>
+	<integer>10</integer>
+
+	<!-- Log output for debugging -->
+	<key>StandardOutPath</key>
+	<string>/var/log/djmt1-bridge.log</string>
+	<key>StandardErrorPath</key>
+	<string>/var/log/djmt1-bridge.log</string>
+
+	<!-- Run at load (system boot) -->
+	<key>RunAtLoad</key>
+	<true/>
+</dict>
+</plist>
