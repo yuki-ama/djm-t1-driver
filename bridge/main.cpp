@@ -42,7 +42,7 @@ static struct djmt1_shm *create_shared_memory()
     /* Remove stale segment if it exists */
     shm_unlink(DJMT1_SHM_NAME);
 
-    int fd = shm_open(DJMT1_SHM_NAME, O_CREAT | O_RDWR, 0600);
+    int fd = shm_open(DJMT1_SHM_NAME, O_CREAT | O_RDWR, 0666);
     if (fd < 0) {
         perror("shm_open");
         return nullptr;
