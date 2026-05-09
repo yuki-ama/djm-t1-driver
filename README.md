@@ -27,7 +27,7 @@ Pioneer（現AlphaTheta）が提供していた従来のkextドライバーが�
 brew install libusb pkg-config
 
 # Clone
-git clone --recursive https://github.com/ultraxperience/djm-t1-driver.git
+git clone --recursive https://github.com/yuki-ama/djm-t1-driver.git
 cd djm-t1-driver
 
 # Build
