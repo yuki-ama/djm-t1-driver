@@ -136,6 +136,13 @@ static inline uint32_t shm_ring_read(const uint8_t *ring, uint32_t cap,
     uint64_t rp = read_pos.load(std::memory_order_relaxed);
     uint64_t available = wp - rp;
 
+    /* Overflow: producer has lapped consumer — data is corrupted.
+       Skip to current write position and return silence for this cycle. */
+    if (available > cap) {
+        read_pos.store(wp, std::memory_order_release);
+        return 0;
+    }
+
     if (available == 0) return 0;
 
     uint32_t to_read = (available < max_len) ? (uint32_t)available : max_len;

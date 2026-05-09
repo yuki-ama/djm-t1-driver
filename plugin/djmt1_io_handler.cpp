@@ -62,7 +62,16 @@ bool DJMT1IOHandler::ConnectToShm()
     }
 
     m_shm = shm;
-    LOG("ConnectToShm: connected to bridge shared memory");
+
+    /* Sync read positions to current write positions so we skip any
+       data that accumulated before the plugin connected. Without this,
+       the plugin would start reading from position 0 while the ring
+       has been overwritten thousands of times, producing garbled audio. */
+    uint64_t in_wp = shm->in_write_pos.load(std::memory_order_acquire);
+    shm->in_read_pos.store(in_wp, std::memory_order_release);
+
+    LOG("ConnectToShm: connected to bridge shared memory (skipped %llu bytes)",
+        (unsigned long long)in_wp);
     return true;
 }
 
